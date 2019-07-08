@@ -1,0 +1,7 @@
+name: Exointeract
+version: @version@
+main: me.xilidev.exointeract.Exointeract
+api-version: 1.13
+depend: [WorldGuard]
+authors: [XiliTra]
+description: Plugin for ExoticServeurs

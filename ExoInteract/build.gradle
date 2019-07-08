@@ -1,0 +1,52 @@
+apply plugin: 'java'
+
+group = pluginGroup
+version = pluginVersion
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'destroystokyo-repo'
+        url = 'https://repo.destroystokyo.com/repository/maven-public/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'com.destroystokyo.paper:paper-api:1.13.2-R0.1-SNAPSHOT'
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.sk89q.com/repo/" }
+}
+
+dependencies {
+    compileOnly 'com.sk89q.worldguard:worldguard-bukkit:7.0.0'
+}
+
+
+repositories {
+    mavenCentral()
+    maven { url "http://maven.enginehub.org/repo/" }
+}
+
+
+dependencies {
+    compileOnly 'com.sk89q.worldedit:worldedit-bukkit:7.0.0'
+}
